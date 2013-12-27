@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.tomecode.wlst-invoke-custom-mbean</groupId>
+		<artifactId>wlst-invoke-custom-mbean</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>jmx-mbean-ear</artifactId>
+	<name>WLST invoke Custom (JMX) MBean # JMX MBean EAR</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>com.tomecode.wlst-invoke-custom-mbean</groupId>
+			<artifactId>jmx-mbean</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+				<dependency>
+			<groupId>com.tomecode.wlst-invoke-custom-mbean</groupId>
+			<artifactId>jmx-mbean-share</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+		<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven.assembly.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>ear</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<archiverConfig>
+								<appxml>${basedir}/src/main/ear/META-INF/application.xml</appxml>
+							</archiverConfig>
+							<archive>
+								<manifest>
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+									<addClasspath>true</addClasspath>
+								</manifest>
+								<manifestEntries>
+									<Specification-Version>1.0</Specification-Version>
+									<Implementation-Version>${project.version}-${maven.build.timestamp}</Implementation-Version>
+									<Class-Path>APP-INF/lib/${project.build.finalName}.jar</Class-Path>
+								</manifestEntries>
+							</archive>
+							<descriptors>
+								<descriptor>src/main/assembly/ear.xml</descriptor>
+							</descriptors>
+							<finalName>wlst-invoke-custom-mbean</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	
+</project>
