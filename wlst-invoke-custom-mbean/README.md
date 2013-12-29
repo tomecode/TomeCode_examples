@@ -20,3 +20,6 @@ On windows:
 On Linux/...:
 ./wlst-invoke-custom-mbean/invokeMbeanWlstScript.sh
   
+Blog posts
+======================================
+[Tomecode.com: How to call method from custom developed JMX MBean throught the WLST](http://www.tomecode.com/2013/12/27/how-to-call-an-mbean-method-form-the-wlst/)
