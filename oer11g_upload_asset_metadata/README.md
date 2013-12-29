@@ -1,13 +1,11 @@
 Example how to upload metadata to asset in OER 11g
 ========================
 
-Product
-========================
-OER 11g(11.1.*)
+### Product
+* OER 11g(11.1.*)
 
-Setup
-========================
-*The source code is eclipse project
+### Setup
+* The source code is eclipse project
 * `./oer11g_upload_asset_metadata/.classpath` - change the classpath
 
 Blog posts
