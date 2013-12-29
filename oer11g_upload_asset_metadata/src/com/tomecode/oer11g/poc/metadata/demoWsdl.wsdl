@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by sITS (s-IT Solutions SK, spol. s r.o.) -->
+<wsdl:description targetNamespace="urn://www.tomecode.com/oer/poc" xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://www.tomecode.com/oer/poc" xmlns:ns="urn://www.tomecode.com/oer/poc/types">
+	<wsdl:types>
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="urn://www.tomecode.com/oer/poc/types" targetNamespace="urn://www.tomecode.com/oer/poc/types" elementFormDefault="qualified">
+			<xs:element name="NewMessageRequest" type="xs:string"/>
+			<xs:element name="NewMessageResponse" type="xs:string"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:interface name="HelloOerInterface">
+		<wsdl:operation name="thisIsSampleOperation" pattern="http://www.w3.org/ns/wsdl/in-out">
+			<wsdl:input messageLabel="In" element="ns:NewMessageRequest"/>
+			<wsdl:output messageLabel="Out" element="ns:NewMessageResponse"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	<wsdl:binding name="helloOerWsdlBinding" interface="tns:HelloOerInterface" type="http://www.w3.org/ns/wsdl/soap" wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+		<wsdl:operation ref="tns:thisIsSampleOperation" wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response/"/>
+	</wsdl:binding>
+	<wsdl:service name="ProviderService" interface="tns:HelloOerInterface">
+		<wsdl:endpoint name="NewEndpoint" binding="tns:helloOerWsdlBinding"/>
+	</wsdl:service>
+</wsdl:description>
