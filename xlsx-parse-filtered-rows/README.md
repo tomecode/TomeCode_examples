@@ -1,4 +1,4 @@
-wlst-invoke-custom-mbean
+xlsx-parse-filtered-rows
 ========================
 
 A simple script that shows how to parse the filtered rows from an Excel(*.xlsx) file with the Apache POI API
